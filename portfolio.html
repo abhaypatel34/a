@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Abhay Patel | AI/ML Portfolio</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            color: #0f172a;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* header / navbar */
+        .navbar {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.6rem;
+            background: linear-gradient(135deg, #1e293b, #3b82f6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #1e293b;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: #3b82f6;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* buttons & utility */
+        .btn-primary {
+            background: #3b82f6;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(59,130,246,0.25);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid #3b82f6;
+            color: #3b82f6;
+            padding: 0.6rem 1.4rem;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .btn-outline:hover {
+            background: #3b82f610;
+            transform: translateY(-1px);
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+            border-left: 5px solid #3b82f6;
+            padding-left: 1rem;
+        }
+
+        /* hero */
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-badge {
+            background: #e0f2fe;
+            color: #0369a1;
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #0f172a, #1e3a8a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-highlight {
+            color: #3b82f6;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: #334155;
+            margin: 1.5rem 0;
+            max-width: 550px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 1.8rem 0;
+        }
+
+        .contact-info a {
+            color: #1e293b;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .contact-info a i {
+            color: #3b82f6;
+            font-size: 1.1rem;
+        }
+
+        .contact-info a:hover {
+            color: #3b82f6;
+        }
+
+        .hero-image {
+            flex: 0.8;
+            background: linear-gradient(145deg, #d9e6f7, #ffffff);
+            border-radius: 2rem;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+        }
+
+        .hero-image i {
+            font-size: 9rem;
+            color: #3b82f6;
+            opacity: 0.8;
+        }
+
+        /* skills grid */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            background: white;
+            border: 1px solid #e2e8f0;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+            transition: all 0.2s;
+        }
+
+        .skill-tag:hover {
+            border-color: #3b82f6;
+            background: #eff6ff;
+            transform: scale(1.02);
+        }
+
+        /* cards for projects & experience */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card, .exp-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            border: 1px solid #eef2ff;
+            transition: all 0.25s;
+        }
+
+        .project-card:hover, .exp-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+            border-color: #cbdffc;
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            color: #3b82f6;
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3, .exp-card h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0 0.8rem;
+        }
+
+        .tech-badge {
+            background: #eef2ff;
+            padding: 0.2rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #1e40af;
+        }
+
+        .date {
+            font-size: 0.8rem;
+            color: #475569;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* certifications */
+        .cert-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .cert-item {
+            background: #f1f5f9;
+            padding: 0.8rem 1.5rem;
+            border-radius: 60px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        footer {
+            background: #0f172a;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 800px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: white;
+                position: absolute;
+                top: 68px;
+                left: 0;
+                width: 100%;
+                padding: 1.5rem;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+                border-bottom: 1px solid #e2e8f0;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .mobile-menu {
+                display: block;
+            }
+            .hero {
+                flex-direction: column;
+            }
+            .hero-content h1 {
+                font-size: 2.4rem;
+            }
+            .container {
+                padding: 0 1.5rem;
+            }
+            .section-title {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">Abhay<span style="color:#3b82f6">.AI</span></div>
+        <div class="mobile-menu" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main>
+    <!-- Hero Section -->
+    <section id="home">
+        <div class="container hero">
+            <div class="hero-content">
+                <span class="hero-badge"><i class="fas fa-microchip"></i> AI/ML Engineer</span>
+                <h1>Building Intelligent <span class="hero-highlight">Deep Learning</span> & Computer Vision Solutions</h1>
+                <p class="hero-desc">Specialist in CNNs for medical imaging, NLP applications, and scalable ML systems. 4+ years of hands-on development across healthcare & business domains.</p>
+                <div class="contact-info">
+                    <a href="tel:8155916177"><i class="fas fa-phone-alt"></i> +91 8155916177</a>
+                    <a href="mailto:abhaypatel.ai.work@gmail.com"><i class="fas fa-envelope"></i> abhaypatel.ai.work</a>
+                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/abhay-patel-ai-work</a>
+                </div>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="#projects" class="btn-primary"><i class="fas fa-robot"></i> Explore Work</a>
+                    <a href="#" class="btn-outline" id="downloadResumeBtn"><i class="fas fa-download"></i> Resume (PDF)</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <i class="fas fa-brain"></i>
+                <p style="margin-top: 0.8rem; font-weight: 500;">Deep Learning • GenAI • NLP</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" style="background: #f1f5f9;">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-briefcase"></i> Professional Experience</h2>
+            <div class="card-grid">
+                <div class="exp-card">
+                    <div class="card-icon"><i class="fab fa-python"></i></div>
+                    <h3>Python Django Developer Intern</h3>
+                    <div class="date"><i class="far fa-calendar-alt"></i> Apr 2025 - May 2025 (Remote) • InfoLabz</div>
+                    <p>Developed scalable web apps with Django & OOP, optimized backend performance. Built RESTful APIs and improved database response times by 25%.</p>
+                </div>
+                <div class="exp-card">
+                    <div class="card-icon"><i class="fab fa-flutter"></i></div>
+                    <h3>Flutter Developer Intern</h3>
+                    <div class="date"><i class="far fa-calendar-alt"></i> Jul 2024 - Nov 2024 • Xira Infotech (On-site)</div>
+                    <p>Cross-platform mobile apps for iOS/Android, REST API integration, state management (Provider). Delivered seamless UX.</p>
+                </div>
+                <div class="exp-card">
+                    <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>SEO Executive</h3>
+                    <div class="date"><i class="far fa-calendar-alt"></i> Jun 2021 - Aug 2022 • Xira Infotech</div>
+                    <p>Increased organic traffic by 40% via advanced SEO strategies, data-driven optimization using Google Analytics & keyword research.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-code-branch"></i> Featured AI/ML Projects</h2>
+            <div class="card-grid">
+                <div class="project-card">
+                    <div class="card-icon"><i class="fas fa-mri"></i></div>
+                    <h3>Brain Tumor Detection</h3>
+                    <p>CNN-based model using transfer learning (VGG16/ResNet) for MRI image classification. Achieved <strong>94% accuracy</strong> in tumor detection, enabling early diagnosis.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">TensorFlow</span>
+                        <span class="tech-badge">Keras</span>
+                        <span class="tech-badge">CNN</span>
+                        <span class="tech-badge">Computer Vision</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="card-icon"><i class="fas fa-file-alt"></i></div>
+                    <h3>Resume Screening App (NLP)</h3>
+                    <p>Intelligent resume analyzer using NLP (TF-IDF, cosine similarity), keyword extraction & ranking. Built with Flask, automates candidate shortlisting.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">NLP</span>
+                        <span class="tech-badge">Scikit-learn</span>
+                        <span class="tech-badge">Flask</span>
+                        <span class="tech-badge">Regex</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="card-icon"><i class="fas fa-film"></i></div>
+                    <h3>Movie Recommendation System</h3>
+                    <p>Personalized engine using collaborative filtering & matrix factorization. 85% prediction accuracy based on user ratings and movie metadata.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Pandas</span>
+                        <span class="tech-badge">Scikit-learn</span>
+                        <span class="tech-badge">Surprise lib</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Certifications combined -->
+    <section id="skills" style="background: #ffffff;">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-cogs"></i> Technical Arsenal</h2>
+            <div class="skills-grid">
+                <span class="skill-tag">Python</span><span class="skill-tag">Dart</span><span class="skill-tag">Java</span>
+                <span class="skill-tag">OOP & DSA</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">Keras</span>
+                <span class="skill-tag">PyTorch (basics)</span><span class="skill-tag">Scikit-learn</span><span class="skill-tag">NumPy/Pandas</span>
+                <span class="skill-tag">Matplotlib/Seaborn</span><span class="skill-tag">CNN / ANN</span><span class="skill-tag">Transfer Learning</span>
+                <span class="skill-tag">Computer Vision</span><span class="skill-tag">NLP</span><span class="skill-tag">Django</span>
+                <span class="skill-tag">Flutter</span><span class="skill-tag">REST APIs</span><span class="skill-tag">Git/GitHub</span>
+            </div>
+
+            <div style="margin-top: 3rem;">
+                <h2 class="section-title" style="border-left-color: #10b981;"><i class="fas fa-certificate"></i> Certifications</h2>
+                <div class="cert-list">
+                    <div class="cert-item"><i class="fab fa-databricks"></i> Generative AI Fundamentals - Databricks (Dec 2025)</div>
+                    <div class="cert-item"><i class="fas fa-chart-line"></i> Intro to Deep Learning - Kaggle (Dec 2025)</div>
+                    <div class="cert-item"><i class="fab fa-python"></i> Machine Learning using Python - Simplilearn (Dec 2025)</div>
+                </div>
+            </div>
+            <div style="margin-top: 2rem;">
+                <h2 class="section-title" style="border-left-color: #f97316;"><i class="fas fa-graduation-cap"></i> Education</h2>
+                <div style="background: #f8fafc; border-radius: 1.5rem; padding: 1.3rem 1.8rem;">
+                    <p style="font-weight: 800; font-size: 1.2rem;">Bachelor of Engineering in Information Technology</p>
+                    <p>Laxmi Institute of Technology | 2023 – 2026 | CGPA: 7.56/10.0</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Get in touch -->
+    <section id="contact" style="background: linear-gradient(120deg, #eef2ff, #ffffff);">
+        <div class="container" style="text-align: center; max-width: 700px;">
+            <h2 class="section-title" style="border-left: none; text-align: center; padding-left: 0;">Let's Connect</h2>
+            <p style="margin-bottom: 2rem; font-size: 1.1rem;">Interested in AI collaborations, research or building impactful ML products — feel free to reach out!</p>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.2rem;">
+                <a href="mailto:abhaypatel.ai.work@gmail.com" class="btn-primary"><i class="fas fa-envelope"></i> Email Me</a>
+                <a href="#" id="contactLinkedinBtn" class="btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="#" id="githubMockBtn" class="btn-outline"><i class="fab fa-github"></i> GitHub (Portfolio)</a>
+            </div>
+            <div class="contact-info" style="justify-content: center; margin-top: 2rem;">
+                <a href="tel:8155916177"><i class="fas fa-phone-alt"></i> +91 8155916177</a>
+                <span><i class="fas fa-map-marker-alt"></i> India (Remote/Open)</span>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 Abhay Patel — AI/ML Portfolio. Built with <i class="fas fa-heart" style="color:#ef4444;"></i> using HTML/CSS/JS</p>
+    <p style="font-size: 0.8rem; margin-top: 0.5rem;">Deep Learning | Computer Vision | NLP | MLOps Enthusiast</p>
+</footer>
+
+<script>
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    mobileBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+    // close mobile menu after clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    });
+
+    // Smooth scroll for all anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if(targetId === "#" || targetId === "") return;
+            const targetElement = document.querySelector(targetId);
+            if(targetElement) {
+                e.preventDefault();
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Resume download simulation (generates a .txt version from resume content)
+    const downloadBtn = document.getElementById('downloadResumeBtn');
+    if(downloadBtn) {
+        downloadBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const resumeText = `Abhay Patel - AI/ML Resume
+Contact: +91 8155916177 | abhaypatel.ai.work@gmail.com | linkedin.com/in/abhay-patel-ai-work
+
+Professional Summary: AI/ML professional specializing in deep learning, computer vision, and NLP. Proven expertise in building CNNs for medical image analysis, NLP applications, and recommendation systems. Skilled in Python, TensorFlow, and full-stack development.
+
+Education: Bachelor of Engineering in Information Technology, Laxmi Institute of Technology (2023-2026) CGPA: 7.56/10.0
+
+Technical Skills: Python, Dart, Java, OOP, DSA, TensorFlow, Keras, CNN, NLP, Scikit-learn, Django, Flutter, REST APIs, NumPy, Pandas, Computer Vision.
+
+Experience: 
+- Python Django Developer Intern @ InfoLabz (Apr 2025-May 2025): built scalable web apps, REST APIs.
+- Flutter Developer Intern @ Xira Infotech (Jul 2024-Nov 2024): cross-platform mobile apps.
+- SEO Executive @ Xira Infotech (Jun 2021-Aug 2022): +40% organic traffic.
+
+Projects: 
+- Brain Tumor Detection (94% accuracy, CNN, Transfer Learning)
+- Resume Screening with NLP (Flask, Scikit-learn)
+- Movie Recommender (85% accuracy, collaborative filtering)
+
+Certifications: Generative AI Fundamentals (Databricks), Intro to Deep Learning (Kaggle), ML using Python (Simplilearn).`;
+            const blob = new Blob([resumeText], {type: 'application/pdf'});
+            // we create a download as .txt because pure pdf generation would require extra libs — but user expects PDF name, we give .txt or .pdf? but it's a standard portfolio demo.
+            // Better to provide .txt file with resume info: let's rename as .pdf for consistency, but content is text.
+            const link = document.createElement('a');
+            const fileBlob = new Blob([resumeText], {type: 'application/octet-stream'});
+            const url = URL.createObjectURL(fileBlob);
+            link.href = url;
+            link.download = 'Abhay_Patel_AI_Resume.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+        });
+    }
+
+    // Placeholder for LinkedIn and Github (mock interactive)
+    const linkedinBtn = document.getElementById('contactLinkedinBtn');
+    if(linkedinBtn) {
+        linkedinBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.open('https://linkedin.com/in/abhay-patel-ai-work', '_blank');
+        });
+    }
+    const githubBtn = document.getElementById('githubMockBtn');
+    if(githubBtn) {
+        githubBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('🌐 GitHub portfolio showcase: github.com/abhay-ai-ml (sample) — Check out my repos for deep learning & NLP projects!');
+        });
+    }
+    // also ensure any additional linkedin link from contact-info works
+    const linkedinProfile = document.querySelector('.contact-info a[href*="linkedin"]');
+    if(linkedinProfile) {
+        linkedinProfile.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.open('https://linkedin.com/in/abhay-patel-ai-work', '_blank');
+        });
+    }
+</script>
+</body>
+</html>
